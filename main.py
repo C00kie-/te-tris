@@ -1,6 +1,7 @@
 #python 2.7
 #initialisation de ma grille de jeu
 
+
 class Maps:
 	def __init__(self, name, x, y):
 		self.map = []
@@ -12,12 +13,12 @@ class Grid:
 		self.x = x
 		self.y = y
 		self.map = [[]]
-		self.map = [[ 0 for i in xrange(x)] for i in xrange(y)]#writes Zeros at each position in the map
+		self.map = [[ 0 for i in range(x)] for i in range(y)]#writes Zeros at each position in the map
 
 	def display(self):
 
 		for i in xrange(self.x):
-			print self.map[i]
+			print (self.map[i])
 
 	def apply_gravity(self):
 		print("\napply_gravity()")
@@ -26,6 +27,18 @@ class Grid:
 class Piece:
 	def __init__(self, x, y, shape):
 		self.current_coords = []##comment je represente ma piece ?
+
+	#shapes  [[,],[,],[,],[,]]
+	I = [[0,1],[1,1],[2,1],[3,1]]
+	O = [[0,1],[0,2],[1,1],[1,2]]
+	T = [[0,1],[0,2],[0,3],[1,2]]
+	S = [[0,0],[0,1],[1,1],[1,2]]
+	Z = [[0,2],[0,3],[1,1],[1,2]]
+	J = [[0,1],[0,2],[1,2],[2,2]]
+	L = [[0,1],[0,2],[1,1],[2,1]]
+
+
+
 
 	def move_piece(self):
 		print("\nmove_piece()")
@@ -63,8 +76,8 @@ piece = Piece(1,6,1)
 grid = Grid("example", 10,12)
 player = Player(1)
 
-print(game)
-print(game.status)
+#print(game)
+#print(game.status)
 
 
 def mainLoop():
@@ -74,6 +87,10 @@ def mainLoop():
 	#
 	# if game.status == 0:
 	# 	print("\nit's done ")
+
+
+	print("let's start")
+
 	while game.status != 0:
 		game.ticket_counter += 1
 		print("ticket counter : ", game.ticket_counter)
